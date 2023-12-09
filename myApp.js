@@ -12,13 +12,14 @@ const pubDirectory = __dirname + "/public";
 app.use('/public', express.static(pubDirectory));
 
 app.get("/json", function(req, res) {
-    const message = {"message": "Hello json"}
+    const myData = {"message": "Hello json"}
     const checkCase = process.env.MESSAGE_STYLE
 
     if (checkCase === 'uppercase'){
-        res.json(message.toUpperCase())
+        const changedCase = myData.message.toUpperCase()
+        res.json(changedCase)
     } else {
-        res.json(message)
+        res.json(myData)
     }
         
 })
