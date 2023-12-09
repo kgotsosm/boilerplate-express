@@ -1,17 +1,15 @@
 let express = require('express');
 let app = express();
 
-console.log('Hello World');
+// console.log('Hello World');
 
 app.get("/", function(req, res) {
-    absolutePath = __dirname + "/views/index.html"
+    const absolutePath = __dirname + "/views/index.html"
     res.sendFile(absolutePath);
 });
 
-app.get("/", function(req, res) {
-    pubDirectory = __dirname + "/public"
-    express.static(pubDirectory)
-});
+const pubDirectory = __dirname + "/public"
+app.use(pubDirectory, express.static(pubDirectory))
 
 
 
