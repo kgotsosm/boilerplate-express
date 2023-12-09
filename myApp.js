@@ -14,7 +14,7 @@ app.use('/public', express.static(pubDirectory));
 const myData = {"message": "Hello json"};
 app.get("/json", function(req, res) {
 
-    if (process.env.MESSAGE_STYLE === 'uppercase') {
+    if (process.env.MESSAGE_STYLE == 'uppercase') {
         myData.message = myData.message.toUpperCase();
     }
 
