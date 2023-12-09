@@ -16,8 +16,7 @@ app.get("/json", function(req, res) {
     const checkCase = process.env.MESSAGE_STYLE
 
     if (checkCase === 'uppercase'){
-        const changedCase = myData.message.toUpperCase()
-        res.json(changedCase)
+        res.json(myData.message.toUpperCase())
     } else {
         res.json(myData)
     }
