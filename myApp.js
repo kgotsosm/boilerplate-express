@@ -8,6 +8,10 @@ app.get("/", function(req, res) {
     res.sendFile(absolutePath);
 });
 
+app.get("/", function(req, res) {
+    pubDirectory = __dirname + "/public"
+    express.static(pubDirectory)
+});
 
 
 
