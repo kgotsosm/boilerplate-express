@@ -8,8 +8,8 @@ app.get("/", function(req, res) {
     res.sendFile(absolutePath);
 });
 
-const pubDirectory = __dirname + "/public"
-app.use(pubDirectory, express.static(pubDirectory))
+const pubDirectory = __dirname + "/public";
+app.use('/public', express.static(pubDirectory));
 
 
 
