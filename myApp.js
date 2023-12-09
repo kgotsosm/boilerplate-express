@@ -13,7 +13,7 @@ app.use("/public", express.static(pubDirectory));
 
 app.get("/json", (req, res) => {
   const mySecret = process.env["MESSAGE_STYLE"];
-  if (process.env.MESSAGE_STYLE === "uppercase ") {
+  if (process.env.MESSAGE_STYLE === "uppercase") {
     res.json({
       message: "Hello json".toUpperCase(),
     });
