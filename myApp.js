@@ -11,6 +11,11 @@ app.get("/", function(req, res) {
 const pubDirectory = __dirname + "/public";
 app.use('/public', express.static(pubDirectory));
 
+app.get("/json", function(req, res) {
+    const message = {"message": "Hello json"}
+    res.json(message)
+})
+
 
 
 
