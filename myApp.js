@@ -53,6 +53,6 @@ app.get("/:word/echo", function(req, res){
 // Get Query Parameter Input from the Client
 app.get('/name', function(req, res) {
   const show = { name: `${req.query(firstname)} ${req.query(lastname)}`}
-  res.json(show)
+  res.json(req.query(show))
 })
 module.exports = app;
