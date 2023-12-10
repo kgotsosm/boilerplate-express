@@ -17,7 +17,7 @@ app.use(function middleware(req, res, next) {
 });
 
 // Middleware to get current time
-app.get('/now', function(req, res, next) {
+app.get("/now", function(req, res, next) {
   req.time = new Date().toString();
   next();
 }, function(req, res) {
@@ -51,10 +51,10 @@ app.get("/:word/echo", function(req, res){
 })
 
 // Get Query Parameter Input from the Client
-app.get('/name', (req, res) => {
+app.get("/name", (req, res) => {
   // Extract first and last name from query parameters
-  const firstName = req.query.first;
-  const lastName = req.query.last;
+  const firstName = req.query.firstName;
+  const lastName = req.query.lastName;
 
   // Check if both first and last names are provided
   if (!firstName || !lastName) {
