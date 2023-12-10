@@ -8,9 +8,11 @@ app.get("/", function (req, res) {
   res.sendFile(absolutePath);
 });
 
+// Using public directory to access css styles
 const pubDirectory = __dirname + "/public";
 app.use("/public", express.static(pubDirectory));
 
+// Conditionally rendering response based on environment variables
 app.get("/json", function (req, res) {
   const mySecret = process.env.MESSAGE_STYLE;
   const myData = { message: "Hello json" };
@@ -20,5 +22,15 @@ app.get("/json", function (req, res) {
     res.json(myData);
   }
 });
+
+// Middleware to log the method, path and ip of request to console
+app.use(function(req, res, next){
+  const method = req.method
+  const path = req.path
+  const ip = req.ip
+  console.log(`${method} ${path} - ${ip}`)
+  next()
+})
+
 
 module.exports = app;
