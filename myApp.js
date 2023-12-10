@@ -52,10 +52,10 @@ app.get("/:word/echo", function(req, res){
 
 // Get Query Parameter Input from the Client
 app.get("/name", (req, res) => {
-  // Extract first and last name from query parameters
-  const fullName = req.query.name
+  // Create the response JSON document
+  const response = { name: `${req.query.firstName} ${req.query.lastName}` };
 
   // Send the response
-  res.json(fullName);
+  res.json(response);
 });
 module.exports = app;
