@@ -24,7 +24,7 @@ app.get("/json", function (req, res) {
 });
 
 // Middleware to log the method, path and ip of request to console
-app.use(function(req, res, next){
+app.use(function middleware(req, res, next){
   const method = req.method
   const path = req.path
   const ip = req.ip
