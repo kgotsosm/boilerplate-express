@@ -53,16 +53,9 @@ app.get("/:word/echo", function(req, res){
 // Get Query Parameter Input from the Client
 app.get("/name", (req, res) => {
   // Extract first and last name from query parameters
-  const firstName = req.query.firstName;
-  const lastName = req.query.lastName;
-
-  // Check if both first and last names are provided
-  if (!firstName || !lastName) {
-    return res.status(400).json({ error: 'Both first and last names are required.' });
-  }
-
+  const fullName = req.query
   // Create the response JSON document
-  const response = { name: `${firstName} ${lastName}` };
+  const response = { name: fullName };
 
   // Send the response
   res.json(response);
