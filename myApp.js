@@ -4,18 +4,24 @@ require("dotenv").config();
 // console.log('Hello World');
 
 // Middleware to log the method, path, and ip of request to console
-app.use(function middleware(req, res, next){
+app.use(function middleware(req, res, next) {
   const method = req.method;
   const path = req.path;
   const ip = req.ip;
-  console.log("This is the path" + req.path)
+
   // Logging the request details in the specified format
   console.log(`${method} ${path} - ${ip}`);
-  
+
   // Call next() to proceed to the next middleware or route handler
   next();
 });
 
+app.get('/now', function(req, res, next) {
+  req.time = new Date().toString();
+  next();
+}, function(req, res) {
+  res.send({time: req.time});
+});
 
 app.get("/", function (req, res) {
   const absolutePath = __dirname + "/views/index.html";
@@ -36,10 +42,5 @@ app.get("/json", function (req, res) {
     res.json(myData);
   }
 });
-
-
-
-
-
 
 module.exports = app;
